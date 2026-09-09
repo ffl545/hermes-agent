@@ -1,13 +1,14 @@
 ---
 name: touchdesigner-mcp
-description: "Control a running TouchDesigner instance via twozero MCP — create operators, set parameters, wire connections, execute Python, build real-time visuals. 36 native tools."
-version: 1.0.0
+description: Control TouchDesigner via twozero MCP.
+version: 1.1.0
 author: kshitijk4poor
 license: MIT
+platforms: [linux, macos, windows]
 metadata:
   hermes:
     tags: [TouchDesigner, MCP, twozero, creative-coding, real-time-visuals, generative-art, audio-reactive, VJ, installation, GLSL]
-    related_skills: [native-mcp, ascii-video, manim-video, hermes-video]
+    related_skills: [ascii-video, manim-video]
 
 ---
 
@@ -204,8 +205,9 @@ win.par.winopen.pulse()
 | `td_input_clear` | Stop input automation |
 | `td_op_screen_rect` | Get screen coords of a node |
 | `td_click_screen_point` | Click a point in a screenshot |
+| `td_screen_point_to_global` | Convert screenshot pixel to absolute screen coords |
 
-See `references/mcp-tools.md` for full parameter schemas.
+The table above covers the 32 tools used in typical creative workflows. The remaining 4 tools (`td_project_quit`, `td_test_session`, `td_dev_log`, `td_clear_dev_log`) are admin/dev-mode utilities — see `references/mcp-tools.md` for the full 36-tool reference with complete parameter schemas.
 
 ## Key Implementation Rules
 
@@ -332,6 +334,21 @@ See `references/network-patterns.md` for complete build scripts + shader code.
 | `references/mcp-tools.md` | Full twozero MCP tool parameter schemas |
 | `references/python-api.md` | TD Python: op(), scripting, extensions |
 | `references/troubleshooting.md` | Connection diagnostics, debugging |
+| `references/glsl.md` | GLSL uniforms, built-in functions, shader templates |
+| `references/postfx.md` | Post-FX: bloom, CRT, chromatic aberration, feedback glow |
+| `references/layout-compositor.md` | HUD layout patterns, panel grids, BSP-style layouts |
+| `references/operator-tips.md` | Wireframe rendering, feedback TOP setup |
+| `references/geometry-comp.md` | Geometry COMP: instancing, POP vs SOP, morphing |
+| `references/audio-reactive.md` | Audio band extraction, beat detection, envelope following |
+| `references/animation.md` | LFOs, timers, keyframes, easing, expression-driven motion |
+| `references/midi-osc.md` | MIDI/OSC controllers, TouchOSC, multi-machine sync |
+| `references/particles.md` | POPs and legacy particleSOP — emission, forces, collisions |
+| `references/projection-mapping.md` | Multi-window output, corner pin, mesh warp, edge blending |
+| `references/external-data.md` | HTTP, WebSocket, MQTT, Serial, TCP, webserverDAT |
+| `references/panel-ui.md` | Custom params, panel COMPs, button/slider/field, panelExecuteDAT |
+| `references/replicator.md` | replicatorCOMP — data-driven cloning, layouts, callbacks |
+| `references/dat-scripting.md` | Execute DAT family — chop/dat/parameter/panel/op/executeDAT |
+| `references/3d-scene.md` | Lighting rigs, shadows, IBL/cubemaps, multi-camera, PBR |
 | `scripts/setup.sh` | Automated setup script |
 
 ---
